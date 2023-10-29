@@ -1,0 +1,20 @@
+.home-carousel {
+  height: 90vh;
+  width: 100%;
+  overflow: hidden;
+  background: #999;
+}
+
+.product-preview {
+  height: 100%;
+  width: 100%;
+}
+
+.supplement-preview {
+  height: 75vh;
+  width: 100%;
+  background-image: url("../src/assets/home_supp1.jpg");
+  background-repeat: no-repeat;
+  background-size: fill;
+  background-position: center center;
+}
