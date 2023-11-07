@@ -1,37 +1,50 @@
 import React, { useState } from "react";
 import { Button, Container, FloatingLabel, Form } from "react-bootstrap";
 import "./login.css";
+import { useAuthStore } from "../stores/login";
+import { toast } from "sonner";
 
 interface User {
   firstName: string;
   lastName: string;
-  email: string;
+  username: string;
   password: string;
   confirmPassword: string;
 }
 
 const Register = () => {
+  const { auth } = useAuthStore();
   const [user, setUser] = useState<User>({
     firstName: "",
     lastName: "",
-    email: "",
+    username: "",
     password: "",
     confirmPassword: "",
   });
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { id, value } = event.target;
+    console.log(id, value);
     setUser((prevState) => ({ ...prevState, [id]: value }));
   };
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (user.password === user.confirmPassword) {
-      console.log("Passwords match");
-      // Add code to submit the form
+    if (
+      user.firstName === "" ||
+      user.lastName === "" ||
+      user.username === "" ||
+      user.password === "" ||
+      user.confirmPassword === ""
+    ) {
+      toast.error("Please fill up all the fields");
     } else {
-      console.log("Passwords do not match");
-      // Add code to display an error message
+      if (user.password === user.confirmPassword) {
+        toast.success("Successfully registered");
+        auth({ username: user.username, password: user.password });
+      } else {
+        toast.error("Password does not match");
+      }
     }
   };
 
@@ -64,15 +77,11 @@ const Register = () => {
               onChange={handleInputChange}
             />
           </FloatingLabel>
-          <FloatingLabel
-            controlId="email"
-            label="Email address"
-            className="mb-3"
-          >
+          <FloatingLabel controlId="username" label="Username" className="mb-3">
             <Form.Control
-              type="email"
-              placeholder="name@example.com"
-              value={user.email}
+              type="text"
+              placeholder="username"
+              value={user.username}
               onChange={handleInputChange}
             />
           </FloatingLabel>
@@ -97,10 +106,18 @@ const Register = () => {
             />
           </FloatingLabel>
           <div className="py-3 d-flex justify-content-between">
-            <Button className="w-25 p-2 fw-semibold" variant="danger" href="/login">
+            <Button
+              className="w-25 p-2 fw-semibold"
+              variant="danger"
+              href="/login"
+            >
               Back
             </Button>
-            <Button className="w-25 p-2 fw-semibold" variant="dark" type="submit">
+            <Button
+              className="w-25 p-2 fw-semibold"
+              variant="dark"
+              type="submit"
+            >
               Sign-Up
             </Button>
           </div>

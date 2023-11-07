@@ -1,96 +1,45 @@
-import { faDumbbell } from "@fortawesome/free-solid-svg-icons";
 import { faMoneyBill } from "@fortawesome/free-solid-svg-icons/faMoneyBill";
 import { faTruck } from "@fortawesome/free-solid-svg-icons/faTruck";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  Navbar,
   Container,
-  Nav,
   Button,
-  NavDropdown,
   Row,
   Col,
   Form,
   FloatingLabel,
   FormFloating,
 } from "react-bootstrap";
+import { useCartStore } from "../stores/cart";
+import { useOrderStore } from "../stores/order";
+import { toast } from "sonner";
+import { useNavigate } from "react-router-dom";
+import { v4 as uuidv4 } from "uuid";
 
 export default function Checkout() {
+  const {cart, clearCart} = useCartStore();
+  const {setOrder} = useOrderStore();
+  const navigate = useNavigate();
+  const deliveryCharge = 150;
+  const subTotal = cart.reduce(
+    (acc, product) => acc + product.price * (product?.quantity ?? 1),
+    0
+  );
+
+  const sum = subTotal + deliveryCharge;
+  const handleOrder = () => {
+    if (cart.length === 0) {
+      toast.error("Your cart is empty");
+      return;
+    }
+    setOrder({orderId: uuidv4(), orderDate: new Date(), orderStatus: "Pending", orderItems: cart, orderTotal: sum});
+    clearCart();
+    toast.success("Order placed successfully");
+    navigate(`/cart`);
+  };
+
   return (
     <>
-      {/* Navbar Start */}
-      <Navbar
-        bg="dark"
-        data-bs-theme="dark"
-        expand="lg"
-        className="bg-body-tertiary"
-      >
-        <Container className="m-auto">
-          <div className="d-flex flex-column w-100">
-            <Nav className="top justify-content-evenly">
-              <Navbar.Brand href="#home">
-                <div className="d-flex align-items-center">
-                  <FontAwesomeIcon
-                    icon={faDumbbell}
-                    style={{ color: "#0f0f0f" }}
-                    size="2x"
-                    className=""
-                  />
-                  <div className="ms-2">WHEYLORD</div>
-                </div>
-              </Navbar.Brand>
-              <Form>
-                <div className="input-group">
-                  <Form.Control
-                    type="search"
-                    placeholder="Search"
-                    className=""
-                    aria-label="Search"
-                  />
-                  <Button variant="outline-success">Search</Button>
-                </div>
-              </Form>
-              <Nav className="ml-auto">
-                <Nav.Link href="/login">Login</Nav.Link>
-                <Nav.Link href="/register">Register</Nav.Link>
-              </Nav>
-            </Nav>
-            <Nav className="bottom">
-              <Navbar.Toggle aria-controls="basic-navbar-nav" />
-              <Navbar.Collapse id="basic-navbar-nav">
-                <Nav className="m-auto">
-                  <Nav.Link href="/">Home</Nav.Link>
-                  <NavDropdown title="Equipments" id="basic-nav-dropdown">
-                    <NavDropdown.Item href="/equipments">
-                      Strength
-                    </NavDropdown.Item>
-                    <NavDropdown.Item href="/equipments">
-                      Mobility
-                    </NavDropdown.Item>
-                  </NavDropdown>
-                  <NavDropdown title="Supplements" id="basic-nav-dropdown">
-                    <NavDropdown.Item href="/supplements">
-                      Steroids
-                    </NavDropdown.Item>
-                    <NavDropdown.Item href="/supplements">
-                      Whey Protein
-                    </NavDropdown.Item>
-                    <NavDropdown.Item href="/supplements">
-                      Creatine
-                    </NavDropdown.Item>
-                    <NavDropdown.Item href="/supplements">
-                      BCCAs
-                    </NavDropdown.Item>
-                  </NavDropdown>
-                  <Nav.Link href="#contact">Contact</Nav.Link>
-                  <Nav.Link href="/about-us">About</Nav.Link>
-                </Nav>
-              </Navbar.Collapse>
-            </Nav>
-          </div>
-        </Container>
-      </Navbar>
-      {/* Navbar End */}
       <Container className="mt-5">
         <div className="fs-1 fw-medium text-center">CHECKOUT</div>
         <Row>
@@ -170,42 +119,35 @@ export default function Checkout() {
                 Subtotal
               </Col>
               <Col lg={6} className="fw-semibold ms-auto text-success text-end">
-                Php. 3000
+                {subTotal.toLocaleString("en-PH", {
+                  style: "currency",
+                  currency: "PHP",
+                })}
               </Col>
             </div>
-            <div className="border border-1"></div>
-            <Col lg={4}>Shipping</Col>
-            <Col lg={8} className="w-100">
-              <Form className="d-flex flex-column justify-content-end">
-                <Form.Check
-                  label="Free Shipping(Metro Manila Only)"
-                  name="group1"
-                  type="radio"
-                  id={`radio-1`}
-                  reverse={true}
-                />
-                <Form.Check
-                  label="Store Pick Up"
-                  name="group1"
-                  type="radio"
-                  id={`radio-2`}
-                  reverse={true}
-                />
-                <Form.Check
-                  label="Delivery charge: Php. 150.00"
-                  name="group1"
-                  type="radio"
-                  id={`radio3`}
-                  reverse={true}
-                />
-              </Form>
-            </Col>
+            <div className="d-flex flex-row">
+              <Col lg={6}>
+                Shipping fee
+              </Col>
+              <Col lg={6} className="fw-bold ms-auto text-end">
+              {`${deliveryCharge.toLocaleString(
+                  "en-PH",
+                  {
+                    style: "currency",
+                    currency: "PHP",
+                  }
+                )}`}
+              </Col>
+            </div>
             <div className="d-flex flex-row">
               <Col lg={6} className="fw-bold">
                 Total
               </Col>
               <Col lg={6} className="fw-bold ms-auto text-success text-end">
-                PHP 6000
+                {sum.toLocaleString("en-PH", {
+                  style: "currency",
+                  currency: "PHP",
+                })}
               </Col>
             </div>
             <div className="border border-1 border-secondary"></div>
@@ -234,7 +176,7 @@ export default function Checkout() {
             <Button
               variant="dark"
               className="fw-semibold w-100"
-              href="/checkout"
+              onClick={handleOrder}
             >
               Order Now
             </Button>

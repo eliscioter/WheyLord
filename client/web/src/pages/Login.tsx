@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import { Button, Container, FloatingLabel, Form } from "react-bootstrap";
 import "./login.css"
+import { useAuthStore } from "../stores/login";
 
 const Login = () => {
-  const [useremail, setUserEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const {auth} = useAuthStore();
 
   const handleUsernameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setUserEmail(event.target.value);
+    setUsername(event.target.value);
   };
 
   const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -16,7 +18,7 @@ const Login = () => {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log(`Submitting username: ${useremail} and password: ${password}`);
+    auth({username, password});
   };
 
   return (
@@ -26,12 +28,12 @@ const Login = () => {
         <Form className="p-5 w-50" onSubmit={handleSubmit}>
           <FloatingLabel
             controlId="floatingEmail"
-            label="Email"
+            label="Username"
             className="mb-3"
             >
             <Form.Control
-              type="email"
-              value={useremail}
+              type="text"
+              value={username}
               onChange={handleUsernameChange}
               placeholder="name@example.com"
             />

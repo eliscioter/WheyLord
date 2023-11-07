@@ -9,24 +9,39 @@ import ProductPage from "./pages/Products";
 import ShoppingCart from "./pages/Shopping-Cart";
 import Checkout from "./pages/Checkout";
 import ForgotPass from "./pages/ForgotPass";
+import NavigationBar from "./pages/components/Navbar";
+import { useAuthStore } from "./stores/login";
+import ViewOrder from "./pages/ViewOrder";
 
 export default function WebRoutes() {
-
+  const { user } = useAuthStore();
+  const isLogin = user ? true : false;
   return (
     <>
+      <NavigationBar />
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/equipments" element={<Equipments />} />
         <Route path="/supplements" element={<Supplements />} />
         <Route path="/about-us" element={<About />} />
-        <Route path="/product" element={<ProductPage />} />
-        <Route path="/cart" element={<ShoppingCart />} />
-        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/products/:type/:id" element={<ProductPage />} />
+        {isLogin && (
+          <>
+            <Route path="/cart" element={<ShoppingCart />} />
+            <Route path="/checkout" element={<Checkout />} />
+            <Route path="/view-order/:id" element={<ViewOrder />} />
+          </>
+        )}
 
-        {/* User Login & Registration */}
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/forgot-pass" element={<ForgotPass />} />
+        {!isLogin && (
+          <>
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/forgot-pass" element={<ForgotPass />} />
+          </>
+        )}
+
+        <Route path="*" element={<Homepage />} />
       </Routes>
     </>
   );
