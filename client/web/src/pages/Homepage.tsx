@@ -1,90 +1,10 @@
-import { Button, Card, Carousel, Col, Form, Row } from "react-bootstrap";
+import { Button, Card, Carousel, Col, Row } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
 import "./homepage.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faDumbbell } from "@fortawesome/free-solid-svg-icons";
 
 export default function Homepage() {
   return (
     <>
-      {/* Navbar Start */}
-      <Navbar
-        bg="dark"
-        data-bs-theme="dark"
-        expand="lg"
-        className="bg-body-tertiary"
-      >
-        <Container className="m-auto">
-          <div className="d-flex flex-column w-100">
-            <Nav className="top justify-content-evenly">
-              <Navbar.Brand href="#home">
-                <div className="d-flex align-items-center">
-                  <FontAwesomeIcon
-                    icon={faDumbbell}
-                    style={{ color: "#0f0f0f" }}
-                    size="2x"
-                    className=""
-                  />
-                  <div className="ms-2">WHEYLORD</div>
-                </div>
-              </Navbar.Brand>
-              <Form>
-                <div className="input-group">
-                  <Form.Control
-                    type="search"
-                    placeholder="Search"
-                    className=""
-                    aria-label="Search"
-                  />
-                  <Button variant="outline-success">Search</Button>
-                </div>
-              </Form>
-              <Nav className="ml-auto">
-                <Nav.Link href="/login">Login</Nav.Link>
-                <Nav.Link href="/register">Register</Nav.Link>
-              </Nav>
-            </Nav>
-            <Nav className="bottom">
-              <Navbar.Toggle aria-controls="basic-navbar-nav" />
-              <Navbar.Collapse id="basic-navbar-nav">
-                <Nav className="m-auto">
-                  <Nav.Link href="/">Home</Nav.Link>
-                  <NavDropdown title="Equipments" id="basic-nav-dropdown">
-                    <NavDropdown.Item href="/equipments">
-                      Strength
-                    </NavDropdown.Item>
-                    <NavDropdown.Item href="/equipments">
-                      Mobility
-                    </NavDropdown.Item>
-                  </NavDropdown>
-                  <NavDropdown title="Supplements" id="basic-nav-dropdown">
-                    <NavDropdown.Item href="/supplements">
-                      Steroids
-                    </NavDropdown.Item>
-                    <NavDropdown.Item href="/supplements">
-                      Whey Protein
-                    </NavDropdown.Item>
-                    <NavDropdown.Item href="/supplements">
-                      Creatine
-                    </NavDropdown.Item>
-                    <NavDropdown.Item href="/supplements">
-                      BCCAs
-                    </NavDropdown.Item>
-                  </NavDropdown>
-                  <Nav.Link href="#contact">Contact</Nav.Link>
-                  <Nav.Link href="/about-us">About</Nav.Link>
-                </Nav>
-              </Navbar.Collapse>
-            </Nav>
-          </div>
-        </Container>
-      </Navbar>
-      {/* Navbar End */}
-
-      {/* Body Start */}
       {/* Carousel Start*/}
       <div className="home-carousel">
         <Carousel data-bs-theme="dark">
