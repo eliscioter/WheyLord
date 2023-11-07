@@ -38,7 +38,7 @@ const Register = () => {
   return (
     <div className="login-bg vh-100">
       <Container className="h-100 d-flex flex-column align-items-center justify-content-center">
-        <div className="fs-1 fw-bold">Register an new account</div>
+        <div className="fs-1 fw-bold">Register a new account</div>
         <Form className="p-5 w-50" onSubmit={handleSubmit}>
           <FloatingLabel
             controlId="firstName"

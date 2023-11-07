@@ -8,6 +8,8 @@ import {
   NavDropdown,
 } from "react-bootstrap";
 import "./equipments.css";
+import { faDumbbell } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 interface Supplement {
   id: number;
@@ -80,7 +82,17 @@ export default function Supplements() {
         <Container className="m-auto">
           <div className="d-flex flex-column w-100">
             <Nav className="top justify-content-evenly">
-              <Navbar.Brand href="#home">WHEYLORD</Navbar.Brand>
+              <Navbar.Brand href="#home">
+                <div className="d-flex align-items-center">
+                  <FontAwesomeIcon
+                    icon={faDumbbell}
+                    style={{ color: "#0f0f0f" }}
+                    size="2x"
+                    className=""
+                  />
+                  <div className="ms-2">WHEYLORD</div>
+                </div>
+              </Navbar.Brand>
               <Form>
                 <div className="input-group">
                   <Form.Control
@@ -145,7 +157,9 @@ export default function Supplements() {
                 <Card.Body className="bg-light">
                   <Card.Title>{supplement.name}</Card.Title>
                   <Card.Text>PHP.{supplement.price}</Card.Text>
-                  <Button variant="dark">Add to Cart</Button>
+                  <Button variant="dark" href="/product">
+                    Add to Cart
+                  </Button>
                 </Card.Body>
               </Card>
             </div>

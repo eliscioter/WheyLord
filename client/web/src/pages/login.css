@@ -12,3 +12,12 @@
 .user-links > a:hover {
   color: brown;
 }
+
+.cancel {
+  text-decoration: none;
+  color: black;
+}
+
+.cancel:hover {
+  color: brown;
+}
