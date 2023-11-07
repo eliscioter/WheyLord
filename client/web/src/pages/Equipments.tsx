@@ -8,6 +8,8 @@ import {
   NavDropdown,
 } from "react-bootstrap";
 import "./equipments.css";
+import { faDumbbell } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 interface Equipment {
   id: number;
@@ -68,7 +70,17 @@ export default function Equipments() {
         <Container className="m-auto">
           <div className="d-flex flex-column w-100">
             <Nav className="top justify-content-evenly">
-              <Navbar.Brand href="#home">WHEYLORD</Navbar.Brand>
+              <Navbar.Brand href="#home">
+                <div className="d-flex align-items-center">
+                  <FontAwesomeIcon
+                    icon={faDumbbell}
+                    style={{ color: "#0f0f0f" }}
+                    size="2x"
+                    className=""
+                  />
+                  <div className="ms-2">WHEYLORD</div>
+                </div>
+              </Navbar.Brand>
               <Form>
                 <div className="input-group">
                   <Form.Control
@@ -128,14 +140,16 @@ export default function Equipments() {
         <div className="row">
           {equipments.map((equipment) => (
             <div className="col-md-4 mb-4" key={equipment.id}>
-              <Card className="cardBuy border border-1 border-black">
-                <Card.Img variant="top" src={equipment.imageUrl} />
-                <Card.Body className="bg-light">
-                  <Card.Title>{equipment.name}</Card.Title>
-                  <Card.Text>PHP.{equipment.price}</Card.Text>
-                  <Button variant="dark">Add to Cart</Button>
-                </Card.Body>
-              </Card>
+              <a href="/product" style={{ textDecoration: "none" }}>
+                <Card className="cardBuy border border-1 border-black">
+                  <Card.Img variant="top" src={equipment.imageUrl} />
+                  <Card.Body className="bg-light">
+                    <Card.Title>{equipment.name}</Card.Title>
+                    <Card.Text>PHP.{equipment.price}</Card.Text>
+                    <Button variant="dark">Add to Cart</Button>
+                  </Card.Body>
+                </Card>
+              </a>
             </div>
           ))}
         </div>

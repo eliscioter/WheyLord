@@ -4,6 +4,8 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import "./homepage.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faDumbbell } from "@fortawesome/free-solid-svg-icons";
 
 export default function Homepage() {
   return (
@@ -18,7 +20,17 @@ export default function Homepage() {
         <Container className="m-auto">
           <div className="d-flex flex-column w-100">
             <Nav className="top justify-content-evenly">
-              <Navbar.Brand href="#home">WHEYLORD</Navbar.Brand>
+              <Navbar.Brand href="#home">
+                <div className="d-flex align-items-center">
+                  <FontAwesomeIcon
+                    icon={faDumbbell}
+                    style={{ color: "#0f0f0f" }}
+                    size="2x"
+                    className=""
+                  />
+                  <div className="ms-2">WHEYLORD</div>
+                </div>
+              </Navbar.Brand>
               <Form>
                 <div className="input-group">
                   <Form.Control
@@ -109,9 +121,7 @@ export default function Homepage() {
             />
             <Carousel.Caption className="text-white">
               <h5>Some random nigga</h5>
-              <p>
-                Wake up. Eat. Go to the gym. Get arrested for no reason.
-              </p>
+              <p>Wake up. Eat. Go to the gym. Get arrested for no reason.</p>
             </Carousel.Caption>
           </Carousel.Item>
         </Carousel>
