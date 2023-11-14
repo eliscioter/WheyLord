@@ -31,7 +31,7 @@ export default function Supplements() {
           {supplements.map((supplement) => (
             <div className="col-md-3 mb-4" key={supplement.id} onClick={() => handleViewItem(supplement.id)}>
               <Card className="cardBuy border border-1 border-black">
-                <Card.Img variant="top" src={supplement.imageUrl} />
+                <Card.Img variant="top" className="card-img" src={supplement.imageUrl} />
                 <Card.Body className="bg-light">
                   <Card.Title>{supplement.name}</Card.Title>
                   <Card.Text>PHP.{supplement.price}</Card.Text>
