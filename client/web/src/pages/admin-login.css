@@ -1,0 +1,23 @@
+.adminLogin-bg {
+  background-image: url("../assets/adminLogin-bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.user-links > a {
+  text-decoration: none;
+  color: black;
+}
+
+.user-links > a:hover {
+  color: brown;
+}
+
+.cancel {
+  text-decoration: none;
+  color: black;
+}
+
+.cancel:hover {
+  color: brown;
+}
