@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { Button, Container, FloatingLabel, Form } from "react-bootstrap";
-import "./login.css"
-import { useAuthStore } from "../stores/login";
+import "./admin-login.css"
+import { useAdminAuthStore } from "../stores/adminlogin";
 
-const Login = () => {
+const AdminLogin = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const {auth} = useAuthStore();
+  const {auth} = useAdminAuthStore();
 
   const handleUsernameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setUsername(event.target.value);
@@ -22,9 +22,9 @@ const Login = () => {
   };
 
   return (
-    <div className="login-bg vh-100">
+    <div className="adminLogin-bg vh-100">
       <Container className="h-100 d-flex flex-column align-items-center justify-content-center">
-        <div className="fs-1 fw-bold">Login</div>
+        <div className="fs-1 fw-bold">Admin Login</div>
         <Form className="p-5 w-50" onSubmit={handleSubmit}>
           <FloatingLabel
             controlId="floatingEmail"
@@ -51,7 +51,7 @@ const Login = () => {
             />
           </FloatingLabel>
           <div className="user-links d-flex justify-content-between">
-            <a href="/register">Create an account</a>
+            <a href="/forgot-pass">Forgot Password?</a>
           </div>
           <div className="py-3 d-flex justify-content-center">
             <Button className="w-25 p-2 fw-semibold" variant="dark" type="submit">
@@ -64,4 +64,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default AdminLogin;

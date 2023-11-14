@@ -11,22 +11,31 @@ import Checkout from "./pages/Checkout";
 import ForgotPass from "./pages/ForgotPass";
 import NavigationBar from "./pages/components/Navbar";
 import { useAuthStore } from "./stores/login";
+import { useAdminAuthStore } from "./stores/adminlogin";
 import ViewOrder from "./pages/ViewOrder";
 import Inventory from "./pages/Inventory";
+import AdminLogin from "./pages/AdminLogin";
+import AdminNavigationBar from "./pages/components/AdminNavbar";
 
 export default function WebRoutes() {
   const { user } = useAuthStore();
+  const { admin } = useAdminAuthStore();
   const isLogin = user ? true : false;
+  const isAdmin = admin ? true : false;
   return (
     <>
-      <NavigationBar />
+      {!isAdmin && <NavigationBar />}
+      {isAdmin && <AdminNavigationBar />}
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/equipments" element={<Equipments />} />
         <Route path="/supplements" element={<Supplements />} />
         <Route path="/about-us" element={<About />} />
         <Route path="/products/:type/:id" element={<ProductPage />} />
-        <Route path="/inventory" element={<Inventory />} />
+
+        {/* ADMIN PATH */}
+        <Route path="/admin/login" element={<AdminLogin />} />
+        <Route path="/admin/inventory" element={<Inventory />} />
         {isLogin && (
           <>
             <Route path="/cart" element={<ShoppingCart />} />

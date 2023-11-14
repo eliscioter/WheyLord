@@ -1,8 +1,4 @@
-import {
-  Container,
-  Col,
-  Row,
-} from "react-bootstrap";
+import { Container } from "react-bootstrap";
 
 export default function About() {
   return (
@@ -10,44 +6,30 @@ export default function About() {
       {/* About Us Start */}
       <Container className="text-center lh-lg">
         <div className="fs-1 fw-bold pt-5">About Us</div>
-        <div className="fs-4 fw-semibold pt-3">When was it created?</div>
+        <div className="fs-4 fw-semibold pt-3">Customer Service</div>
         <div>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-          Necessitatibus aspernatur recusandae optio amet voluptas soluta
-          debitis voluptate explicabo quisquam, eligendi consequuntur dolorum
-          hic beatae possimus commodi veritatis nesciunt quidem nam nihil
-          assumenda. Veritatis voluptates debitis aut commodi corporis natus
-          nisi.
+          One of the things our customers love about our store is the unrivaled
+          customer service that we are available always to attend to visitors'
+          inquiries. All you need to do is get in touch, and we will handle any
+          issues you might have promptly.
         </div>
-        <div className="fs-4 fw-semibold pt-3">Why do we exist?</div>
+        <div className="fs-4 fw-semibold pt-3">Special Deals</div>
         <div>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cumque
-          assumenda deserunt placeat nam asperiores repudiandae modi veniam
-          ipsum, provident, quisquam dicta reprehenderit debitis fugit! Ducimus!
+          We value our customers, and we are always looking for new ways to
+          reward them for their patronage. This is why we give our customers
+          exclusive deals they can't find elsewhere. Our goal is to provide
+          excellent service to our customers so they can recommend us to friends
+          and family.
         </div>
-        <div className="fs-4 fw-semibold pt-3">Our Mission & Vision</div>
-        <Row>
-          <Col xs={12} md={6}>
-            <div className="fs-5 fw-semibold">Mission</div>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus,
-            facilis! Laboriosam pariatur veniam at, numquam similique quasi hic
-            temporibus facilis.
-          </Col>
-          <Col xs={12} md={6}>
-            <div className="fs-5 fw-semibold">Vision</div>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio,
-            quibusdam eveniet eum velit minus pariatur provident autem totam
-            rerum consequuntur?
-          </Col>
-        </Row>
-        <div className="fs-4 fw-semibold pt-3 ">Community</div>
+        <div className="fs-4 fw-semibold pt-3">Customer Satisfaction</div>
         <div>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et rerum
-          similique adipisci dicta quibusdam odio eligendi minus culpa voluptate
-          sunt, facilis neque incidunt eius quisquam ipsam! Magni molestias
-          assumenda ut sapiente expedita minima, neque, ullam quisquam
-          asperiores officia recusandae a sequi sit? Dolores hic voluptatem
-          consequatur illum fugiat esse accusantium.
+          We are aware that our customers are the driving force behind our
+          business, and are always ready to go out of our way to exceed their
+          expectation with every product they purchase from our store. We
+          believe we can turn our store's visitors into not just customers but
+          raving fans. You can take advantage of our amazing products and great
+          services right away by first browsing through our various categories
+          and collection.
         </div>
       </Container>
       {/* About Us End */}

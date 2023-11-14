@@ -34,7 +34,7 @@ export default function Supplements() {
                 <Card.Img variant="top" className="card-img" src={supplement.imageUrl} />
                 <Card.Body className="bg-light">
                   <Card.Title>{supplement.name}</Card.Title>
-                  <Card.Text>PHP.{supplement.price}</Card.Text>
+                  <Card.Text>₱{supplement.price}</Card.Text>
                   <Button
                     variant="dark"
                     onClick={() =>

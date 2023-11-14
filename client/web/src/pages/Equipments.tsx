@@ -37,7 +37,7 @@ export default function Equipments() {
                 <Card.Img variant="top" src={equipment.imageUrl} />
                 <Card.Body className="bg-light">
                   <Card.Title>{equipment.name}</Card.Title>
-                  <Card.Text>PHP.{equipment.price}</Card.Text>
+                  <Card.Text>₱{equipment.price}</Card.Text>
                   <Button
                     variant="dark"
                     onClick={() =>
