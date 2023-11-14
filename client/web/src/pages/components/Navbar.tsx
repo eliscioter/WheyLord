@@ -1,4 +1,4 @@
-import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
+import { Navbar, Container, Nav } from "react-bootstrap";
 
 import { faCartShopping, faDumbbell } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -10,7 +10,7 @@ export default function NavigationBar() {
     deAuth();
     localStorage.clear();
     window.location.reload();
-  }
+  };
 
   const isLogin = user ? true : false;
 
@@ -35,20 +35,19 @@ export default function NavigationBar() {
                 <div className="ms-2">WHEYLORD</div>
               </div>
             </Navbar.Brand>
-            { !isLogin ? (
+            {!isLogin ? (
               <Nav className="ml-auto">
                 <Nav.Link href="/login">Login</Nav.Link>
                 <Nav.Link href="/register">Register</Nav.Link>
               </Nav>
-            ): 
-            (
+            ) : (
               <Nav className="ml-auto">
                 <Nav.Link onClick={handleLogout}>Logout</Nav.Link>
 
                 <Nav.Link href="/cart">
                   <FontAwesomeIcon icon={faCartShopping} className="me-2" />
                 </Nav.Link>
-                </Nav>
+              </Nav>
             )}
           </Nav>
           <Nav className="bottom">
@@ -56,26 +55,8 @@ export default function NavigationBar() {
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="m-auto">
                 <Nav.Link href="/">Home</Nav.Link>
-                <NavDropdown title="Equipments" id="basic-nav-dropdown">
-                  <NavDropdown.Item href="/equipments">
-                    Strength
-                  </NavDropdown.Item>
-                  <NavDropdown.Item href="/equipments">
-                    Mobility
-                  </NavDropdown.Item>
-                </NavDropdown>
-                <NavDropdown title="Supplements" id="basic-nav-dropdown">
-                  <NavDropdown.Item href="/supplements">
-                    Steroids
-                  </NavDropdown.Item>
-                  <NavDropdown.Item href="/supplements">
-                    Whey Protein
-                  </NavDropdown.Item>
-                  <NavDropdown.Item href="/supplements">
-                    Creatine
-                  </NavDropdown.Item>
-                  <NavDropdown.Item href="/supplements">BCCAs</NavDropdown.Item>
-                </NavDropdown>
+                <Nav.Link href="/equipments">Equipments</Nav.Link>
+                <Nav.Link href="/supplements">Supplements</Nav.Link>
                 <Nav.Link href="/about-us">About</Nav.Link>
               </Nav>
             </Navbar.Collapse>

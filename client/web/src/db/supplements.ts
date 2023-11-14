@@ -1,53 +1,44 @@
 import { Product } from "../stores/cart";
 
-
 export const supplements: Product[] = [
   {
     id: 1,
-    name: "MuscleMax Whey Protein",
-    price: 999,
-    imageUrl: "../src/assets/home_whey1.webp",
+    name: "Beta-Alanine",
+    price: 1349,
+    imageUrl: "../src/assets/supplement1.png",
     description:
-      "MuscleMax Whey Protein is a high-quality supplement designed to help gym-goers maximize muscle growth and recovery. Packed with essential amino acids, it's an essential part of your fitness regimen.",
+      "Beta-alanine is an amino acid that is produced in the liver and also found in fish, poultry, and meat. When dosed at 4–6g/day for 2–4 weeks, this supplement has been shown to improve exercise performance, particularly for high-intensity exercise lasting 1–4 minutes, such as high-intensity interval training (HIIT) or short sprints. It has also been shown to reduce neuromuscular fatigue, particularly in older adults.",
   },
   {
     id: 2,
-    name: "LeanFit Whey Protein",
+    name: "Caffeine",
     price: 199,
-    imageUrl: "../src/assets/home_whey1.webp",
+    imageUrl: "../src/assets/supplement2.png",
     description:
-      "LeanFit Whey Protein is a low-fat, fast-absorbing protein source ideal for gym-goers looking to build lean muscle and maintain a toned physique. Enjoy its delicious taste and nutritional benefits.",
+      " For high performance athletes, the International Olympic Committee recommends 3–6mg caffeine/kg of body weight consumed an hour before exercise. Evidence also suggests that lower caffeine doses (up to 3mg/kg body weight, ~200 mg) taken before and during prolonged exercise can increase athletic performance. Mechanistically, caffeine increases endorphin release, improves neuromuscular function, vigilance, and alertness, and reduces perception of exertion during exercise.",
   },
   {
     id: 3,
-    name: "EnergyPro Whey Protein",
-    price: 599,
-    imageUrl: "../src/assets/home_whey1.webp",
+    name: "Micronized Creatine",
+    price: 1620,
+    imageUrl: "../src/assets/supplement3.png",
     description:
-      "EnergyPro Whey Protein is a gym-goer's best friend, providing the energy and nutrients needed for intense workouts. It's a convenient and delicious way to support your fitness goals.",
+      "Creatine is a naturally occurring compound found in skeletal muscle that is synthesized in the body from amino acids and can be obtained from red meat and seafood. In the body, it helps produce adenosine triphosphate (ATP), which provides energy for muscles. Creatine is a popular workout supplement marketed to increase athletic performance, especially for weight training. Research suggests that creatine supplementation increases muscle availability of creatine, which in turn can enhance exercise capacity and training adaptations in adolescents, younger adults, and older adults. ",
   },
   {
     id: 4,
-    name: "RecoveryZone Whey Protein",
-    price: 699,
-    imageUrl: "../src/assets/home_whey1.webp",
+    name: "Gold Standard Whey Protein",
+    price: 1100,
+    imageUrl: "../src/assets/whey1.png",
     description:
       "RecoveryZone Whey Protein is specifically formulated for gym-goers seeking quick recovery after workouts. It aids in muscle repair and growth, making it an essential part of your post-exercise routine.",
   },
   {
     id: 5,
-    name: "EnduranceWhey Protein",
-    price: 899,
-    imageUrl: "../src/assets/home_whey1.webp",
+    name: "Gold Standard Whey Isolate",
+    price: 1273,
+    imageUrl: "../src/assets/whey2.png",
     description:
-      "EnduranceWhey Protein is designed to enhance endurance and performance for dedicated gym-goers. Whether you're an athlete or a fitness enthusiast, this supplement will help you stay energized throughout your workouts.",
-  },
-  {
-    id: 6,
-    name: "PowerLift Whey Protein",
-    price: 799,
-    imageUrl: "../src/assets/home_whey1.webp",
-    description:
-      "PowerLift Whey Protein is the go-to choice for gym-goers aiming to increase strength and power. With a unique blend of nutrients, it's perfect for those seeking to push their limits and make significant gains.",
+      "Recommended levels of daily protein intake for the general population (0.8 grams of protein for every kilogram of body weight, or about 7 grams of protein every day for every 20 pounds of body weight) are estimated to be sufficient to meet the needs of nearly all healthy adults. Recommendations for protein supplementation during exercise vary based on the type of exercise being conducted: endurance training (e.g., long-distance bicycling) or resistance training (e.g., weight lifting). ",
   },
 ];

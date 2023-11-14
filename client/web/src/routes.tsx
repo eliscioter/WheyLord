@@ -12,6 +12,7 @@ import ForgotPass from "./pages/ForgotPass";
 import NavigationBar from "./pages/components/Navbar";
 import { useAuthStore } from "./stores/login";
 import ViewOrder from "./pages/ViewOrder";
+import Inventory from "./pages/Inventory";
 
 export default function WebRoutes() {
   const { user } = useAuthStore();
@@ -25,6 +26,7 @@ export default function WebRoutes() {
         <Route path="/supplements" element={<Supplements />} />
         <Route path="/about-us" element={<About />} />
         <Route path="/products/:type/:id" element={<ProductPage />} />
+        <Route path="/inventory" element={<Inventory />} />
         {isLogin && (
           <>
             <Route path="/cart" element={<ShoppingCart />} />
