@@ -3,7 +3,8 @@ import { Button, Container, Table } from "react-bootstrap";
 import "./inventory.css";
 import { faFloppyDisk, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import UpdateInventoryModal from "../pages/components/InventoryModal.tsx";
+import { toast } from "sonner";
+// import UpdateInventoryModal from "../pages/components/InventoryModal.tsx";
 
 interface Item {
   id: number;
@@ -59,15 +60,15 @@ export default function Inventory() {
     },
   ]);
 
-  const [showUpdateModal, setShowUpdateModal] = useState(false);
+  // const [showUpdateModal, setShowUpdateModal] = useState(false);
 
-  const handleShowUpdate = () => {
-    setShowUpdateModal(true);
-  };
+  // const handleShowUpdate = () => {
+  //   setShowUpdateModal(true);
+  // };
 
-  const handleCloseUpdate = () => {
-    setShowUpdateModal(false);
-  };
+  // const handleCloseUpdate = () => {
+  //   setShowUpdateModal(false);
+  // };
 
   const handleUpdate = (
     id: number,
@@ -92,16 +93,20 @@ export default function Inventory() {
   const handleSubtractQuantity = (id: number) =>
     handleUpdate(id, "quantity", "subtract");
 
+  function handleEdit(){
+    toast.success("Edited Successfully");
+  }
+
   return (
     <Container>
-      <UpdateInventoryModal
+      {/* <UpdateInventoryModal
         showUpdate={showUpdateModal}
         handleCloseUpdate={handleCloseUpdate}
         handleShowUpdate={function (): void {
           throw new Error("Function not implemented.");
         }}
-      />
-      <div className="py-5 d-flex justify-content-end">
+      /> */}
+      {/* <div className="py-5 d-flex justify-content-end">
         <Button
           variant="dark"
           className="fw-semibold"
@@ -109,7 +114,7 @@ export default function Inventory() {
         >
           ADD PRODUCT
         </Button>
-      </div>
+      </div> */}
       <Table responsive hover>
         <thead>
           <tr>
@@ -191,7 +196,7 @@ export default function Inventory() {
               </td>
               <td>
                 <Button variant="success">
-                  <FontAwesomeIcon icon={faFloppyDisk} />
+                  <FontAwesomeIcon icon={faFloppyDisk} onClick={handleEdit} />
                 </Button>
                 <span className="px-1"></span>
                 <Button variant="danger">

@@ -47,7 +47,7 @@ export default function AdminNavigationBar() {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="m-auto">
-                <Nav.Link href="/">Inventory</Nav.Link>
+                <Nav.Link href="/admin/inventory">Inventory</Nav.Link>
               </Nav>
             </Navbar.Collapse>
           </Nav>
